@@ -1,106 +1,74 @@
-# 📊 Tableau Sales & Customer Dashboards
+# Dokumentasi Proyek: Tableau Sales & Customer Dashboards
 
-[![Tableau](https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=Tableau&logoColor=white)](https://www.tableau.com/)
-[![Dataset](https://img.shields.io/badge/Dataset-Superstore_EU-blue?style=for-the-badge)](https://github.com/)
-[![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)](https://github.com/)
-
-Sebuah proyek visualisasi data interaktif menggunakan **Tableau Desktop** yang dirancang untuk menganalisis kinerja penjualan bisnis (*Sales Performance*) dan perilaku pelanggan (*Customer Insights*). Proyek ini dibangun berdasarkan kebutuhan bisnis nyata (User Stories) untuk membantu jajaran eksekutif dan manajer penjualan dalam mengambil keputusan berbasis data.
+Dokumen ini berisi spesifikasi teknis dan dokumentasi lengkap dari proyek **Tableau Sales & Customer Dashboards**. Proyek ini dirancang untuk memberikan wawasan berbasis data kepada para pemangku kepentingan (seperti eksekutif dan manajer penjualan) dalam menganalisis kinerja penjualan dan perilaku pelanggan.
 
 ---
 
-## 📌 Galeri Dashboard (Tangkapan Layar)
+## 1. Pendahuluan
 
-> [!TIP]
-> *Silakan ambil screenshot dashboard Tableau Anda dan simpan di folder `images/`, lalu perbarui tautan di bawah ini agar gambar tampil secara langsung di halaman utama GitHub Anda.*
-
-| 📈 Sales Performance Dashboard | 👥 Customer Insights Dashboard |
-| :---: | :---: |
-| ![Sales Dashboard Placeholder](images/Icon%20-%20Sales%20Dashboard(active).png) <br> *(Tambahkan screenshot Sales Dashboard Anda di sini)* | ![Customer Dashboard Placeholder](images/Icon%20-%20Customer%20Dashboard(active).png) <br> *(Tambahkan screenshot Customer Dashboard Anda di sini)* |
+Tujuan dari proyek ini adalah membangun dua buah dashboard interaktif di Tableau Desktop yang berfungsi untuk melacak *Key Performance Indicators* (KPI) terkait pendapatan, profitabilitas, serta tren historis. Dashboard ini memungkinkan penelusuran data yang lebih dalam (*drill-down*) berdasarkan hierarki produk dan wilayah geografis.
 
 ---
 
-## 📖 Ringkasan Proyek & Spesifikasi Kebutuhan
+## 2. Spesifikasi Kebutuhan Dashboard (Requirements)
 
-Proyek ini mencakup pengembangan **dua dashboard utama** dengan spesifikasi teknis dan visual sebagai berikut:
+Pengembangan dashboard didasarkan pada *User Stories* berikut:
 
-### 1. Sales Performance Dashboard (Analisis Penjualan)
-* **KPI Utama (BANs):** Menampilkan ringkasan total Penjualan (*Sales*), Keuntungan (*Profit*), dan Jumlah Barang Terjual (*Quantity*) untuk tahun berjalan (*Current Year*) vs tahun sebelumnya (*Previous Year*).
-* **Tren Penjualan Bulanan:** Menampilkan fluktuasi bulanan untuk setiap KPI utama untuk membandingkan performa Year-over-Year (YoY) serta menyoroti bulan dengan penjualan tertinggi dan terendah secara visual.
-* **Perbandingan Subkategori Produk:** Perbandingan performa penjualan dan profitabilitas antar subkategori produk untuk mengidentifikasi produk penyumbang keuntungan terbesar.
-* **Tren Mingguan:** Analisis mingguan penjualan dan profit tahun berjalan terhadap rata-rata mingguan untuk memantau performa jangka pendek secara dinamis.
+### 2.1. Sales Performance Dashboard
+Fokus utama dari dashboard ini adalah menyajikan metrik kinerja penjualan untuk memfasilitasi analisis *Year-over-Year* (YoY).
+* **KPI Utama (BANs):** Menampilkan ringkasan metrik Total Penjualan, Total Keuntungan, dan Jumlah Kuantitas untuk tahun berjalan dan tahun sebelumnya.
+* **Tren Penjualan (Bulanan):** Menampilkan pergerakan metrik secara bulanan (YoY) serta menonjolkan bulan-bulan dengan performa tertinggi dan terendah agar mudah dikenali.
+* **Perbandingan Subkategori Produk:** Menyoroti perbandingan antara hasil penjualan dan tingkat keuntungan (profit) pada setiap subkategori produk.
+* **Tren Mingguan:** Menyajikan data mingguan pada tahun berjalan, menampilkan garis rata-rata mingguan, serta menyoroti titik-titik data (minggu) yang berada di atas atau di bawah batas rata-rata.
 
-### 2. Customer Insights Dashboard (Analisis Pelanggan)
-* **KPI Utama (BANs):** Menampilkan total jumlah pelanggan unik (*Customers*), rata-rata penjualan per pelanggan (*Sales per Customer*), dan total pesanan (*Total Orders*) YoY.
-* **Tren Bulanan (Sparklines):** Sparklines bulanan yang ringkas untuk setiap metrik pelanggan guna melihat pergerakan tren sepanjang tahun.
-* **Distribusi Pesanan Pelanggan:** Grafik *Bar-in-Bar* untuk memetakan distribusi pelanggan berdasarkan jumlah pesanan yang mereka lakukan guna menganalisis loyalitas pelanggan.
-* **Top 10 Customers:** Tabel interaktif yang merinci 10 pelanggan paling menguntungkan lengkap dengan peringkat (*Rank*), jumlah pesanan, total transaksi, total keuntungan, dan tanggal pesanan terakhir.
-
----
-
-## 🛠️ Desain, Interaktivitas, & Kontainer
-
-Dashboard dirancang secara modular dan responsif menggunakan prinsip desain Tableau terbaik:
-* **Struktur Tata Letak Kontainer:** Sesuai dengan panduan dalam `mockup.pdf`, tata letak disusun secara presisi menggunakan **Vertical Container (Main)** di bagian luar, serta kombinasi **Horizontal** dan **Nested Containers** di bagian dalam untuk memastikan kestabilan visual saat dibuka di berbagai resolusi layar.
-* **Navigasi Dinamis:** Menggunakan aset gambar kustom di folder `images/` untuk berpindah antardashboard secara mulus menggunakan tombol gambar interaktif (*Image Navigation Buttons*).
-* **Filter Global & Interaktif:** 
-  * Filter dropdown untuk menyaring data berdasarkan **Kategori/Subkategori Produk**, serta wilayah geografis (**Region, State, City**).
-  * Fitur *Use as Filter* diaktifkan pada semua chart untuk memungkinkan eksplorasi data secara dinamis (mengklik elemen grafik akan menyaring grafik lainnya).
-  * Filter **Year Selector** dinamis untuk fleksibilitas analisis lintas tahun.
+### 2.2. Customer Insights Dashboard
+Fokus utama dari dashboard ini adalah analitik profil pelanggan dan loyalitas pesanan.
+* **KPI Utama (BANs):** Menampilkan Total Pelanggan, Penjualan per Pelanggan, dan Total Pesanan untuk tahun berjalan dan sebelumnya.
+* **Tren Pelanggan (Sparklines):** Representasi visual yang ringkas mengenai tren pelanggan per bulan.
+* **Distribusi Pesanan Pelanggan (Bar-in-Bar):** Representasi sebaran pelanggan berdasarkan jumlah pesanan yang mereka lakukan untuk menganalisis keterikatan (*engagement*).
+* **Top 10 Customers (Berdasarkan Profit):** Menyajikan data 10 besar pelanggan yang menyumbang keuntungan tertinggi, lengkap dengan jumlah pesanan, total penjualan, total profit, dan tanggal transaksi terakhir.
 
 ---
 
-## 📂 Struktur Repositori
+## 3. Arsitektur dan Skema Dataset
 
-```text
-├── Sales & Customer Dashboards.twbx       <- Berkas utama Tableau Packaged Workbook
-├── Problem.pdf                           <- Dokumen persyaratan bisnis & User Stories
-├── mockup.pdf                            <- Panduan tata letak kontainer & sketsa visual
-├── project_phases.pdf                    <- Dokumentasi tahapan implementasi proyek
-├── datasets/
-│   └── eu/                               <- Sumber data mentah (format regional Eropa)
-│       ├── Customers.csv                 <- Data master pelanggan (793 baris)
-│       ├── Location.csv                  <- Data geografis wilayah Eropa (632 baris)
-│       ├── Orders.csv                    <- Data transaksi transaksi (9994 baris)
-│       └── Products.csv                  <- Data katalog detail produk (1894 baris)
-├── images/                               <- Aset ikon & logo untuk dashboard
-└── .gitignore                            <- File konfigurasi Git untuk menyaring berkas sampah
-```
+Dataset yang digunakan berfokus pada wilayah Eropa dengan spesifikasi (*formatting*) khusus yang perlu diperhatikan saat melakukan integrasi data:
 
----
+* **Format Pemisah (Delimiter):** Semicolon (`;`)
+* **Format Desimal:** Koma (`,`) (Standar Eropa)
 
-## 📊 Rincian Sumber Data
+### Skema Tabel
 
-Data yang digunakan merupakan data penjualan retail Eropa dengan spesifikasi teknis khusus:
-* **Delimiter:** Kolom pada seluruh file CSV dipisahkan oleh titik koma (`;`).
-* **Format Desimal:** Kolom desimal seperti `Sales` dan `Profit` di file `Orders.csv` menggunakan format desimal Eropa yaitu koma (`,`), contoh: `219,582`.
-* **Pengodean Karakter (Encoding):**
-  * `Customers.csv` & `Products.csv` menggunakan pengodean `latin1` (ISO-8859-1).
-  * `Location.csv` & `Orders.csv` menggunakan pengodean `utf-8`.
-
-> [!IMPORTANT]
-> **Catatan Penting saat Menghubungkan Data di Tableau:**
-> Jika Anda menyambungkan kembali data mentah secara manual di Tableau, pastikan untuk mengatur **Text File Properties** Anda dengan pemisah kolom (separator) **Semicolon** dan setelan bahasa (*Locale*) ke negara yang mendukung format desimal koma (misalnya *Germany* atau *France*), atau ubah tipe datanya melalui *Custom Locale* di Tableau agar angka terbaca dengan benar sebagai numerik dan bukan teks.
+1. **Orders.csv** (`utf-8`) - *Data Transaksi (9.994 baris)*
+   * Kolom: `Row ID`, `Order ID`, `Order Date`, `Ship Date`, `Ship Mode`, `Customer ID`, `Segment`, `Postal Code`, `Product ID`, `Sales`, `Quantity`, `Discount`, `Profit`.
+2. **Customers.csv** (`latin1`) - *Data Master Pelanggan (793 baris)*
+   * Kolom: `Customer ID`, `Customer Name`.
+3. **Products.csv** (`latin1`) - *Data Katalog Produk (1.894 baris)*
+   * Kolom: `Product ID`, `Category`, `Sub-Category`, `Product Name`.
+4. **Location.csv** (`utf-8`) - *Data Geografis (632 baris)*
+   * Kolom: `Postal Code`, `City`, `State`, `Region`, `Country/Region`.
 
 ---
 
-## 🚀 Cara Menjalankan Proyek
+## 4. Arsitektur Desain Antarmuka (UI/UX)
 
-1. **Prasyarat:** Pastikan Anda telah menginstal **Tableau Desktop** atau **Tableau Reader** di komputer Anda.
-2. **Klon Repositori:**
-   ```bash
-   git clone https://github.com/USERNAME/Sales-Customer-Dashboard-Project.git
-   ```
-3. **Buka Workbook:**
-   * Klik ganda berkas `Sales & Customer Dashboards.twbx` di folder utama.
-   * Karena berkas berformat `.twbx` (*Packaged Workbook*), semua data mentah dari folder `datasets/` sudah terkemas di dalamnya secara otomatis, sehingga Anda bisa langsung menjelajahi dashboard tanpa perlu melakukan koneksi data ulang.
+Dashboard dibangun dengan memanfaatkan hierarki **Container** yang ketat di Tableau untuk memastikan tata letak yang proporsional pada berbagai perangkat:
 
----
-
-## 👤 Penulis
-
-* **Keyla Rindani** - *Data Analyst / Tableau Developer*
-* LinkedIn: [keylarindani](https://linkedin.com/in/)
-* GitHub: [keylarindani](https://github.com/)
+1. **Main Vertical Container:** Bertindak sebagai pembungkus (*wrapper*) utama seluruh elemen dashboard.
+2. **Horizontal Container (KPI):** Terletak di bagian atas untuk menampung elemen-elemen metrik kunci (BANs).
+3. **Horizontal & Nested Vertical Container (Charts):** Terletak di bawah KPI untuk menempatkan diagram interaktif. Grafik-grafik pendamping (*secondary charts*) disusun secara bersarang di sebelah grafik utama (*primary chart*).
+4. **Interaktivitas (*Actions & Navigation*):**
+   * Menggunakan tombol navigasi (*Image Button*) kustom yang diletakkan melalui folder `images/` untuk berpindah antardashboard.
+   * Filter silang (*Cross-filtering*) otomatis dengan menjadikan setiap grafik sebagai pemicu filter bagi komponen lainnya.
+   * *Parameter/Filter* interaktif untuk filter kategori, subkategori, serta wilayah secara dinamis, termasuk penyesuaian Tahun (*Year*).
 
 ---
-*Proyek ini merupakan bagian dari Tableau Portfolio Showcase.*
+
+## 5. Panduan Penggunaan (*Deployment Guide*)
+
+1. **Membuka Proyek:** Buka berkas `Sales & Customer Dashboards.twbx` menggunakan aplikasi **Tableau Desktop** (versi yang relevan) atau **Tableau Reader**.
+2. **Koneksi Data:** Karena berkas tersebut bertipe *Packaged Workbook* (`.twbx`), semua *extract* data (`datasets/`) dan aset gambar (`images/`) telah terkompresi bersama. Anda tidak perlu menyambungkan ulang jalur *database* atau file lokal, kecuali jika Anda ingin melakukan pembaruan data secara langsung (*live connection* / *refresh extract*).
+3. **Pembaruan Data:** Jika struktur data CSV berubah, pastikan *Text File Properties* Tableau diatur untuk membaca pemisah berupa titik koma (`;`) dan *Locale* diatur ke negara dengan format desimal koma (misal: *Germany*).
+
+---
+*Dokumentasi ini dibuat untuk melengkapi dan memandu fase implementasi dari Keyla's Tableau Project.*
